@@ -1,11 +1,16 @@
 local Pet = {}
 Pet.__index = Pet
 
-function Pet.new(Rarity: string, Name: string)
+export type NewPet = {
+    name: string,
+    rarity: string
+}
+
+function Pet.new(rarity : string, name : string)
     local self = setmetatable({}, Pet)
 
-    self.name = Name
-    self.rarity = Rarity
+    self.name = name
+    self.rarity = rarity
     
     return self
 end
